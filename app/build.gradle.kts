@@ -20,6 +20,11 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")
+
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+
+    testImplementation("org.assertj:assertj-core:3.23.1")
 }
 
 testing {

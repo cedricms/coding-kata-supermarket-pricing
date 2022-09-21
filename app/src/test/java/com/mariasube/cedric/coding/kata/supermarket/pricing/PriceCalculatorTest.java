@@ -1,8 +1,9 @@
 package com.mariasube.cedric.coding.kata.supermarket.pricing;
 
-import com.mariasube.cedric.coding.kata.supermarket.pricing.model.Article;
+import com.mariasube.cedric.coding.kata.supermarket.pricing.model.article.Article;
 import com.mariasube.cedric.coding.kata.supermarket.pricing.model.Price;
 import com.mariasube.cedric.coding.kata.supermarket.pricing.model.Purchase;
+import com.mariasube.cedric.coding.kata.supermarket.pricing.model.article.DefaultArticle;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,7 +46,7 @@ public class PriceCalculatorTest {
 
         int valueInCents = 77;
 
-        Purchase purchase = createPurchase(valueInCents, 1);
+        Purchase purchase = createDefaultArticlePurchase(valueInCents, 1);
 
         List<Purchase> purchases = new ArrayList<>();
         purchases.add(purchase);
@@ -68,11 +69,11 @@ public class PriceCalculatorTest {
 
         List<Purchase> purchases = new ArrayList<>();
 
-        Purchase purchase1 = createPurchase(77, 3);
+        Purchase purchase1 = createDefaultArticlePurchase(77, 3);
         purchases.add(purchase1);
-        Purchase purchase2 = createPurchase(33, 7);
+        Purchase purchase2 = createDefaultArticlePurchase(33, 7);
         purchases.add(purchase2);
-        Purchase purchase3 = createPurchase(555, 13);
+        Purchase purchase3 = createDefaultArticlePurchase(555, 13);
         purchases.add(purchase3);
 
         // When
@@ -85,14 +86,15 @@ public class PriceCalculatorTest {
         assertThat(calculatedPrice).isEqualTo(resultPrice);
     }
 
-    private Purchase createPurchase(int valueInCents, int quantity) {
+    private Purchase createDefaultArticlePurchase(int valueInCents, int quantity) {
         Purchase purchase = new Purchase();
         purchase.setQuantity(quantity);
-        Article article = new Article();
+        Article article = new DefaultArticle();
         Price price = new Price();
         price.setValueInCents(valueInCents);
         article.setPrice(price);
         purchase.setArticle(article);
+
         return purchase;
     }
 }

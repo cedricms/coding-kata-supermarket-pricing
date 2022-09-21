@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Price {
+
     private String currency;
     private int valueInCents;
 

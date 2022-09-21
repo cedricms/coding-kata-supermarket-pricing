@@ -1,5 +1,6 @@
 package com.mariasube.cedric.coding.kata.supermarket.pricing.model;
 
+import com.mariasube.cedric.coding.kata.supermarket.pricing.model.article.Article;
 import lombok.Data;
 
 @Data
